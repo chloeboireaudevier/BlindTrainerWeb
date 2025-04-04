@@ -1,19 +1,18 @@
 //Background color
-const BACKGROUND = (223,220,204);
+export const BACKGROUND = (223,220,204);
 
 //Colors
-const BLACK= (0,0,0);
+export const BLACK = 'rgb(0, 0, 0)';
+export const GREEN = 'rgb(16, 250, 54)';
+export const ORANGE = 'rgb(250, 150, 15)';
+export const RED = 'rgb(250, 16, 16)';
+export const BLUE = 'rgb(16, 63, 250)';
+export const YELLOW = 'rgb(241, 250, 16)';
+export const WHITE = 'rgb(255, 255, 255)';
 
-const GREEN = (16,250,54);
-const ORANGE = (250,150,15);
-const RED = (250,16,16);
-const BLUE = (16,63,250);
-const YELLOW = (241,250,16);
-const WHITE = (255,255,255);
+export const colors = [GREEN,ORANGE,RED,BLUE,YELLOW,WHITE];
 
-const colors = [GREEN,ORANGE,RED,BLUE,YELLOW,WHITE];
-
-const edges = new Map();
+export const edges = new Map();
 edges.set([WHITE, BLUE], 'AQ');
 edges.set([WHITE, ORANGE], 'DE');
 edges.set([WHITE, GREEN], 'CI');
@@ -27,11 +26,9 @@ edges.set([ORANGE, GREEN], 'FL');
 edges.set([GREEN, RED], 'JP');
 edges.set([RED, BLUE], 'NT');
 
+export const edges_key_list = Array.from(edges.keys());
 
-
-//const edges_list = list(edges.items())
-
-const corners = new Map();
+export const corners = new Map();
 corners.set([WHITE, ORANGE, GREEN], 'DFI');
 corners.set([WHITE, ORANGE, BLUE], 'AER');
 corners.set([WHITE, GREEN, RED], 'CJM');
@@ -42,9 +39,9 @@ corners.set([YELLOW, RED, BLUE], 'WOT');
 corners.set([YELLOW, ORANGE, BLUE], 'XHS');
 
 
-//const corners_list = list(corners.items())
+export const corners_key_list = Array.from(corners.keys());
 
 /*
 //Window size
-const width,height
+export const width,height
 width, height = 500,300*/

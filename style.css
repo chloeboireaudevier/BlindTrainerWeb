@@ -24,3 +24,17 @@ body {
     width: 50px;
   }
   
+  .square {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    display: inline-block;
+}
+
+#square1 {
+    background-color: red; /* Initial color for the first square */
+}
+
+#square2 {
+    background-color: blue; /* Initial color for the second square */
+}
