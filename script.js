@@ -1,5 +1,7 @@
 import * as CONST from './const.js';
 const squaresContainer = document.getElementById('squaresContainer');
+let res;
+
 let currentChar = '';
 
 function getRandomCorner() {
@@ -29,8 +31,35 @@ function changeColors() {
 
 }
 
+function shuffleList(N) {
+    // Step 1: Create a list of integers from 0 to N
+    let list = [];
+    for (let i = 0; i < N; i++) {
+      list.push(i);
+    }
+  
+    // Step 2: Apply the Fisher-Yates shuffle
+    for (let i = list.length - 1; i > 0; i--) {
+      // Random index between 0 and i
+      const randomIndex = Math.floor(Math.random() * (i + 1));
+      
+      // Swap the elements
+      [list[i], list[randomIndex]] = [list[randomIndex], list[i]];  // ES6 destructuring swap
+    }
+
+    return list;
+
+}
+
 function randomizeOrder(colors,letters){
-    return 0
+    const order = shuffleList(colors.length);
+    let ordered_colors = [], ordered_letters = [];
+
+    for (let i = 0; i<colors.length;i++){
+        ordered_colors.push(colors[order[i]]);
+        ordered_letters.push(letters[order[i]]);
+    }
+    return [ordered_colors,ordered_letters];
 }
 
 function generateSquares() {
@@ -39,15 +68,13 @@ function generateSquares() {
   
     // Randomly choose between 1 and 2
     const randomNum = Math.floor(Math.random() * 2); // 0 or 1
-
-    let res;
     
     if (randomNum == 0){
         res = getRandomEdge();
     } else {
         res = getRandomCorner();
     }
-    console.log(res)
+    res = randomizeOrder(res[0],res[1]);
 
     // Loop to create the squares
     for (let i = 0; i < randomNum+2; i++) {
