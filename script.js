@@ -1,6 +1,5 @@
-let currentChar = '';
-
 import * as CONST from './const.js';
+let currentChar = '';
 
 function getRandomCorner() {
     const randomIndex = Math.floor(Math.random() * CONST.corners_key_list.length);

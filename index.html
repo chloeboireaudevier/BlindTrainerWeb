@@ -5,17 +5,20 @@
   <title>Blind Trainer</title>
   <script type="module" src="script.js"></script>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="rubiks_icon.webp" type="image/webp">
 </head>
 <body>
+  <div class="container">
+    <h1>Blind Trainer</h1>
+    <p id="char-display">Press Start</p>
+
     <!-- Squares -->
     <div class="square" id="square1"></div>
     <div class="square" id="square2"></div>
 
     <!-- Button to trigger color change -->
     <button id="changeColorButton">Change Colors</button>
-  <div class="container">
-    <h1>Blind Trainer</h1>
-    <p id="char-display">Press Start</p>
+
     <input type="text" id="input-box" autofocus />
     <button onclick="startTraining()">Start</button>
     <p id="feedback"></p>

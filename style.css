@@ -1,16 +1,22 @@
 body {
     font-family: sans-serif;
     text-align: center;
-    background-color: #f4f4f4;
-    margin-top: 100px;
+    background-color: #adb7ab;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Make the body take the full viewport height */
+    margin: 0; /* Remove default margin on the body */
   }
   
   .container {
-    background: white;
+    background: #c6c5c2;
     padding: 2em;
     border-radius: 10px;
     display: inline-block;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 400px; /* Set the container width */
+    height: 300px; /* Set the container height */
   }
   
   #char-display {
@@ -32,9 +38,9 @@ body {
 }
 
 #square1 {
-    background-color: red; /* Initial color for the first square */
+    background-color: white; /* Initial color for the first square */
 }
 
 #square2 {
-    background-color: blue; /* Initial color for the second square */
+    background-color: white; /* Initial color for the second square */
 }

@@ -1,5 +1,5 @@
 //Background color
-export const BACKGROUND = (223,220,204);
+export const BACKGROUND = 'rgb(204, 202, 187)';
 
 //Colors
 export const BLACK = 'rgb(0, 0, 0)';
@@ -40,8 +40,3 @@ corners.set([YELLOW, ORANGE, BLUE], 'XHS');
 
 
 export const corners_key_list = Array.from(corners.keys());
-
-/*
-//Window size
-export const width,height
-width, height = 500,300*/
