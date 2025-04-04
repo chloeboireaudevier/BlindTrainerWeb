@@ -1,5 +1,6 @@
 import * as CONST from './const.js';
 const squaresContainer = document.getElementById('squaresContainer');
+const letterDisplay = document.getElementById('letter-display');
 let res;
 
 let currentChar = '';
@@ -83,6 +84,9 @@ function generateSquares() {
       square.style.backgroundColor = res[0][i];
       squaresContainer.appendChild(square); // Append the square to the container
     }
+
+    //Display the letters
+    document.getElementById('letter-display').textContent = res[1];
   }
 
 // Add event listener to the button

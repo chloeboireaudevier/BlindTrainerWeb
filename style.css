@@ -42,6 +42,11 @@ body {
     font-size: 3em;
     margin: 1em 0;
   }
+
+  #letter-display {
+    font-size: 3em;
+    margin: 1em 0;
+  }
   
   #input-box {
     font-size: 2em;
