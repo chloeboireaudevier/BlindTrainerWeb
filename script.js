@@ -1,4 +1,5 @@
 import * as CONST from './const.js';
+const squaresContainer = document.getElementById('squaresContainer');
 let currentChar = '';
 
 function getRandomCorner() {
@@ -28,9 +29,38 @@ function changeColors() {
 
 }
 
-// Add event listener to the button
-document.getElementById('changeColorButton').addEventListener('click', changeColors);
+function randomizeOrder(colors,letters){
+    return 0
+}
 
+function generateSquares() {
+    // Clear any existing squares in the container
+    squaresContainer.innerHTML = '';
+  
+    // Randomly choose between 1 and 2
+    const randomNum = Math.floor(Math.random() * 2); // 0 or 1
+
+    let res;
+    
+    if (randomNum == 0){
+        res = getRandomEdge();
+    } else {
+        res = getRandomCorner();
+    }
+    console.log(res)
+
+    // Loop to create the squares
+    for (let i = 0; i < randomNum+2; i++) {
+      const square = document.createElement('div');
+      square.classList.add('square'); // Add the 'square' class to style it
+      square.style.backgroundColor = res[0][i];
+      squaresContainer.appendChild(square); // Append the square to the container
+    }
+  }
+
+// Add event listener to the button
+//document.getElementById('changeColorButton').addEventListener('click', changeColors);
+document.getElementById('changeColorButton').addEventListener('click', generateSquares);
 
 
 /*
