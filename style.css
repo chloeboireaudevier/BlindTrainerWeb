@@ -51,6 +51,14 @@ body {
     margin: 0 5px;
     font-weight: bold;
   }
+
+  .hidden {
+    visibility: hidden;
+  }
+
+  .button {
+    margin: 10px;
+  }
   
   #char-display {
     font-size: 3em;

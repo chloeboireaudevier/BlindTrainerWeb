@@ -2,7 +2,7 @@ import * as CONST from './const.js';
 const squaresContainer = document.getElementById('squaresContainer');
 const lettersContainer = document.getElementById('lettersContainer');
 let currentConfiguration;
-let showLetters = 0;
+let numShowedLetters = 0;
 
 let currentChar = '';
 
@@ -65,7 +65,7 @@ function randomizeOrder(colors,letters){
 }
 
 function generateSquares() {
-    showLetters = 0;
+    numShowedLetters = 0;
     // Clear any existing squares in the container
     squaresContainer.innerHTML = '';
   
@@ -84,11 +84,12 @@ function generateSquares() {
         const pair = document.createElement('div');
         pair.classList.add('pair');
 
-        const square = document.createElement('square');
+        const square = document.createElement('div');
         square.classList.add('square');
         square.style.backgroundColor = currentConfiguration[0][i];
 
-        const letter = document.createElement('letter');
+        const letter = document.createElement('p');
+        letter.classList.add('letter','hidden');
         letter.textContent = currentConfiguration[1][i];
 
         pair.appendChild(square);
@@ -98,18 +99,25 @@ function generateSquares() {
     console.log(currentConfiguration[1]);
   }
 
-function getHint(){
-    if (showLetters < currentConfiguration[0].length){
-        showLetters++;
+
+function showLetters(i){
+    const letters = document.querySelectorAll('.letter');
+    for (let j = 0; j < i; j++) {
+        letters[j].classList.remove('hidden');
     }
-    console.log(showLetters);
+}
+
+function getHint(){
+    if (numShowedLetters < currentConfiguration[0].length){
+        numShowedLetters++;
+        showLetters(numShowedLetters);
+    }
+    console.log(numShowedLetters);
 }
 
 // Add event listener to the button
-//document.getElementById('changeColorButton').addEventListener('click', changeColors);
 document.getElementById('changeColorButton').addEventListener('click', generateSquares);
-document.getElementById('getHintButton').addEventListener('click', getHint);
-
+document.getElementById('getHintButton').addEventListener('click',getHint);
 
 /*
 function startTraining() {
