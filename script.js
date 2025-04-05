@@ -1,10 +1,9 @@
 import * as CONST from './const.js';
 const squaresContainer = document.getElementById('squaresContainer');
 const lettersContainer = document.getElementById('lettersContainer');
-let currentConfiguration;
+let currentConfiguration='';
 let numShowedLetters = 0;
 
-let currentChar = '';
 
 function getRandomCorner() {
     const randomIndex = Math.floor(Math.random() * CONST.corners_key_list.length);
@@ -65,6 +64,8 @@ function randomizeOrder(colors,letters){
 }
 
 function generateSquares() {
+    document.getElementById('feedback').textContent = '';
+    document.getElementById('input-box').value = '';
     numShowedLetters = 0;
     // Clear any existing squares in the container
     squaresContainer.innerHTML = '';
@@ -96,7 +97,7 @@ function generateSquares() {
         pair.appendChild(letter);
         squaresContainer.appendChild(pair);
     }
-    console.log(currentConfiguration[1]);
+    //console.log(currentConfiguration[1]);
   }
 
 
@@ -112,12 +113,24 @@ function getHint(){
         numShowedLetters++;
         showLetters(numShowedLetters);
     }
-    console.log(numShowedLetters);
+    //console.log(numShowedLetters);
+}
+
+function submitAnswer(){
+    const userInput = document.getElementById('input-box').value.toLowerCase();
+    if (userInput.length > 0) {
+        if (userInput == currentConfiguration[1].join("").toLowerCase()) {
+            document.getElementById('feedback').textContent = '✅ Correct!';
+        } else {
+            document.getElementById('feedback').textContent = `❌ Wrong, it was "${currentConfiguration[1].join('')}"`;
+        }
+    }
 }
 
 // Add event listener to the button
 document.getElementById('changeColorButton').addEventListener('click', generateSquares);
 document.getElementById('getHintButton').addEventListener('click',getHint);
+document.getElementById('answerButton').addEventListener('click',submitAnswer);
 
 /*
 function startTraining() {
