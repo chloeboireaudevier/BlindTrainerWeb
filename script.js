@@ -125,6 +125,7 @@ function submitAnswer(){
             } else {
                 document.getElementById('feedback').textContent = `❌ Wrong, it was "${currentConfiguration[1].join('')}"`;
             }
+            document.getElementById('input-box').value = '';
         }
     }
 }
@@ -133,3 +134,8 @@ function submitAnswer(){
 document.getElementById('changeColorButton').addEventListener('click', generateSquares);
 document.getElementById('getHintButton').addEventListener('click',getHint);
 document.getElementById('answerButton').addEventListener('click',submitAnswer);
+document.getElementById('input-box').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      submitAnswer();
+    }
+});
