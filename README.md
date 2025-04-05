@@ -1,2 +1,2 @@
 # BlindTrainerWeb
-Web version of the python blind trainer !
+Web version of the blind trainer !

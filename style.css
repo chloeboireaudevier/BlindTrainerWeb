@@ -35,6 +35,7 @@ body {
     background: #c6c5c2;
     padding: 2em;
     border-radius: 10px;
+    margin : 15px;
     display: inline-block;
     width: 450px; /* Set the container width */
     height: 100px; /* Set the container height */
@@ -57,7 +58,7 @@ body {
   }
 
   .button {
-    margin: 15px;
+    margin: 5px;
   }
   
   #char-display {
@@ -83,12 +84,4 @@ body {
     height: 100px;
     margin: 20px;
     display: inline-block;
-}
-
-#square1 {
-    background-color: white; /* Initial color for the first square */
-}
-
-#square2 {
-    background-color: white; /* Initial color for the second square */
 }

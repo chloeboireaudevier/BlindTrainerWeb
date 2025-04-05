@@ -117,44 +117,19 @@ function getHint(){
 }
 
 function submitAnswer(){
-    const userInput = document.getElementById('input-box').value.toLowerCase();
-    if (userInput.length > 0) {
-        if (userInput == currentConfiguration[1].join("").toLowerCase()) {
-            document.getElementById('feedback').textContent = '✅ Correct!';
-        } else {
-            document.getElementById('feedback').textContent = `❌ Wrong, it was "${currentConfiguration[1].join('')}"`;
+    if (currentConfiguration!=''){
+        const userInput = document.getElementById('input-box').value.toLowerCase();
+        if (userInput.length > 0) {
+            if (userInput == currentConfiguration[1].join("").toLowerCase()) {
+                document.getElementById('feedback').textContent = '✅ Correct!';
+            } else {
+                document.getElementById('feedback').textContent = `❌ Wrong, it was "${currentConfiguration[1].join('')}"`;
+            }
         }
     }
 }
 
-// Add event listener to the button
+// Event listeners
 document.getElementById('changeColorButton').addEventListener('click', generateSquares);
 document.getElementById('getHintButton').addEventListener('click',getHint);
 document.getElementById('answerButton').addEventListener('click',submitAnswer);
-
-/*
-function startTraining() {
-  nextChar();
-  document.getElementById('feedback').textContent = '';
-  document.getElementById('input-box').value = '';
-  document.getElementById('input-box').focus();
-}
-
-function nextChar() {
-  currentChar = getRandomCorner();
-  document.getElementById('char-display').textContent = currentChar[1];
-}
-
-document.getElementById('input-box').addEventListener('input', function(e) {
-  const userInput = e.target.value.toLowerCase();
-  if (userInput.length > 0) {
-    if (userInput === currentChar) {
-      document.getElementById('feedback').textContent = '✅ Correct!';
-    } else {
-      document.getElementById('feedback').textContent = `❌ Oops! It was "${currentChar}"`;
-    }
-    e.target.value = '';
-    nextChar();
-  }
-});
-*/
