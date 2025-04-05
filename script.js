@@ -135,7 +135,7 @@ document.getElementById('changeColorButton').addEventListener('click', generateS
 document.getElementById('getHintButton').addEventListener('click',getHint);
 document.getElementById('answerButton').addEventListener('click',submitAnswer);
 document.getElementById('input-box').addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
+    if (e.key == 'Enter') {
       submitAnswer();
     }
 });
