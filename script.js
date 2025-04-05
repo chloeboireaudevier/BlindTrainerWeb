@@ -1,7 +1,8 @@
 import * as CONST from './const.js';
 const squaresContainer = document.getElementById('squaresContainer');
-const letterDisplay = document.getElementById('letter-display');
-let res;
+const lettersContainer = document.getElementById('lettersContainer');
+let currentConfiguration;
+let showLetters = 0;
 
 let currentChar = '';
 
@@ -64,34 +65,50 @@ function randomizeOrder(colors,letters){
 }
 
 function generateSquares() {
+    showLetters = 0;
     // Clear any existing squares in the container
     squaresContainer.innerHTML = '';
   
-    // Randomly choose between 1 and 2
-    const randomNum = Math.floor(Math.random() * 2); // 0 or 1
+    // Randomly choose between 0 and 1
+    const randomNum = Math.floor(Math.random() * 2);
     
     if (randomNum == 0){
-        res = getRandomEdge();
+        currentConfiguration = getRandomEdge();
     } else {
-        res = getRandomCorner();
+        currentConfiguration = getRandomCorner();
     }
-    res = randomizeOrder(res[0],res[1]);
+    currentConfiguration = randomizeOrder(currentConfiguration[0],currentConfiguration[1]);
 
     // Loop to create the squares
     for (let i = 0; i < randomNum+2; i++) {
-      const square = document.createElement('div');
-      square.classList.add('square'); // Add the 'square' class to style it
-      square.style.backgroundColor = res[0][i];
-      squaresContainer.appendChild(square); // Append the square to the container
-    }
+        const pair = document.createElement('div');
+        pair.classList.add('pair');
 
-    //Display the letters
-    document.getElementById('letter-display').textContent = res[1];
+        const square = document.createElement('square');
+        square.classList.add('square');
+        square.style.backgroundColor = currentConfiguration[0][i];
+
+        const letter = document.createElement('letter');
+        letter.textContent = currentConfiguration[1][i];
+
+        pair.appendChild(square);
+        pair.appendChild(letter);
+        squaresContainer.appendChild(pair);
+    }
+    console.log(currentConfiguration[1]);
   }
+
+function getHint(){
+    if (showLetters < currentConfiguration[0].length){
+        showLetters++;
+    }
+    console.log(showLetters);
+}
 
 // Add event listener to the button
 //document.getElementById('changeColorButton').addEventListener('click', changeColors);
 document.getElementById('changeColorButton').addEventListener('click', generateSquares);
+document.getElementById('getHintButton').addEventListener('click', getHint);
 
 
 /*
